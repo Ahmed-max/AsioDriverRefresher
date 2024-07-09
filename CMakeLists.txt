@@ -22,13 +22,4 @@ set_target_properties(ASIODriverRefresher PROPERTIES
 
 target_link_libraries(ASIODriverRefresher PRIVATE propsys.lib ksuser.lib)
 
-if(MSVC)
-    target_compile_options(ASIODriverRefresher PRIVATE /W4 /MP)
-
-
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /MT")
-else()
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
-endif()
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
