@@ -17,15 +17,8 @@ jobs:
       - name: Checkout current build target
         uses: actions/checkout@v2
         
-      - name: Install CMake
-        run: |
-          choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
-
-      - name: Verify CMake installation
-        run: cmake --version
-        
       - name: Configure CMake
-        run: cmake -S . -B build
+        run: cmake -S . -B build -G Ninja
 
       - name: Build with CMake
         run: cmake --build build --config Release
