@@ -24,7 +24,7 @@ jobs:
         
         
       - name: Configure CMake
-        run: cmake -S . -B build -G Ninja --target ASIODriverRefresher -j 10
+        run: cmake -S . -B build -G Ninja
 
       - name: Build with CMake
-        run: cmake --build build --config Release
+        run: cmake --build build --config Release --target ASIODriverRefresher -j 10
